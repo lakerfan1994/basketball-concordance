@@ -1,5 +1,12 @@
- language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: 2+PCTDfzXn8zadZF8IgywpOjqYccaqQwiY9mjWwo9gyn0bpHMJd/qCT8qxxB8WySWMMh5MVHNKiFO6A1A9DJKOxRSH+DyshybBKmO0BfbwVTND1kFbYj+5SpImY62k0MIXyauGgeKAwBC9AJtjBPuRKRnbY270XppMYzsJSQMj9oaxYbTz77+9Flg/snReDnvMq6uX2KaxRyplOSdlBgiiIiqJPgAGEkK08cJ/hOyNDFaU0VWE6jdzUp9Cssv+T0DzDvqlOvxVqIMldLH7EPrHrMgi/GcIaWVA7fudW9EeLG4IqsaxobtTCr5gMgySHCR4WpPkquvLuqZDh6VbuxMnsLpQTdiCBclzVaBDSby6vW/ZC1UgFOhtnAbJWAwROellLSnB0DyQdAUIJ5RE03w6AnmJlwr9t35nSRF2rYEkRGOu2pxj6oZo79dPNWTE6Y1JJAHCJGHHTF3p+iiG1pdYUV5+V4FLd3ve7h2c6VZv1gAE4ghfYZGzK1MDtanZosWj/rRMZcl8UukvsmH/mv4bgVW11DX07Nl3qahqp4S/rqIOoxEkUXNzRX6ItL8fWpx4/Eh2iHMCCRkh+/d2X9mzUXoOvH5LfCcDeP49zfFhjbwDmVZC7U+NPZ+JZ45TVuR55Rm1JhKtN1/VvoBrFaVdMPwKDpT7WhoQt4+01AEic=
+  app: infinite-taiga-42293
+  on:
+    repo: lakerfan1994/basketball-concordance
