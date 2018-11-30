@@ -1,0 +1,10 @@
+.not-found-message {
+	margin-top: 150px;
+}
+
+@media only screen and (min-width: 700px) {
+	.not-found-message {
+		margin-left: 35%;
+	}
+}
+

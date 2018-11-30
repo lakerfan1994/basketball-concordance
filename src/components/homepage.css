@@ -1,0 +1,55 @@
+
+.homepage-navbar {
+	display: flex;
+	flex-direction: row;
+}
+
+.homepage-navbar-child {
+	flex: 1;
+}
+
+.centered-text {
+	text-align: center;
+}
+
+.main-search {
+	padding-top: 150px;
+}
+
+.main-search-bar {
+	width: 100%;
+	height: 35px;
+}
+
+.search-bar-wrapper{
+	margin-top: 40px;
+	text-align: left;
+}
+
+.hidden {
+	display: none;
+}
+
+.signup-form {
+	display: flex;
+	flex-direction: column;
+}
+
+@media only screen and (min-width: 700px) {
+	.main-search{
+		margin-left: 25%;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

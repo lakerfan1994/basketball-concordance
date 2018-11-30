@@ -1,0 +1,27 @@
+ul {
+	padding: 0;
+	text-align: left;
+}
+
+li {
+	list-style-type: none;
+}
+
+.summary-content {
+	margin-top: 75px;
+	padding-bottom: 5px;
+	clear: both;
+}
+
+.content-bar {
+	border: 2px solid black;
+	background: rgb(245,245,245);
+	float: right;
+	padding: 0 10px 0 10px;
+
+}
+
+.title-shot {
+	border-bottom: 1px solid black;
+}
+

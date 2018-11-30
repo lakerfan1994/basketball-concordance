@@ -1,0 +1,13 @@
+
+.homepage-navbar {
+	display: flex;
+	flex-direction: row;
+}
+
+.homepage-navbar-child {
+	flex: 1;
+}
+
+.centered-text {
+	text-align: center;
+}

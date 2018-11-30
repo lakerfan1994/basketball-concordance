@@ -1,0 +1,11 @@
+.section-title {
+	border-bottom: 1px solid black;
+}
+
+.section-text {
+	margin-top: 25px;
+}
+
+.section-content {
+	clear: both;
+}
