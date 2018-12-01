@@ -4,6 +4,7 @@ import Navbar from './navbar';
 import Searchbar from './searchbar';
 import ArticleStub from './articlestub';
 import Page from './page';
+import AddNewPage from './addNewPage';
 import './homepage.css';
 import '../grid.css';
 
@@ -13,7 +14,7 @@ export default function Homepage(props) {
 
 	return (
 		<div>
-		<Page title='The Los Angeles Lakers' summary="Just work" sections={[{title: 'Lakdasers', text: 'lmaobinsco'}, {title: 'Lolakers', text: 'chimichangachimirun' }]} />
+		<AddNewPage />
 	</div>)
 }
 
@@ -24,3 +25,5 @@ export default function Homepage(props) {
 
 
 		// <ArticleStub loggedIn={false} searchTerm='ballshit' />
+
+		// <Page title='The Los Angeles Lakers' summary="Just work" sections={[{title: 'Lakdasers', text: 'lmaobinsco'}, {title: 'Lolakers', text: 'chimichangachimirun' }]} />

@@ -1,0 +1,33 @@
+
+@media only screen and (min-width: 700px) {
+
+	.page-form {
+		margin-left: 25%;
+	}
+}
+
+.page-form {
+	display: flex;
+	flex-direction: column;
+	height: 400px;
+}
+
+.page-small-child {
+	flex: 1;
+}
+
+.page-child {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.page-large-child {
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+}
+
+.centered-text{
+	text-align: center;
+}
