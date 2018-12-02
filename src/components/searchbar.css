@@ -1,0 +1,13 @@
+.main-search-bar {
+	width: 80%;
+
+}
+
+.flex-bar-wrapper {
+	align-items: flex-end;
+}
+
+button {
+	width: 20%;
+	height: 35px;
+}

@@ -19,7 +19,7 @@ export default function ArticleStub(props) {
 return(
 	<div class="not-found-page row centered-text">
 		<div class="not-found-message col-4">
-			<strong>Sorry, the page {props.searchterm} does not 
+			<strong>Sorry, the page {props.searchTerm} does not 
 			exist. <SignupButton /> or <LoginButton /> to edit the page</strong>
 		</div>
 	</div>
