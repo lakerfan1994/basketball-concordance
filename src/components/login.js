@@ -1,4 +1,32 @@
-// So the way its going to work just so i have it for future reference is that the signup and login buttons will trigger a 
-// dispatch that changes a signup variable in the reducer to true to indicate im trying to either sign up or log in. This in the 
-//rerendering will allow me to put a new if statement in the homepage tthat will display this object or the signup object, based
-//on whether im trying to log in or not. So when you come back, work on fleshing out the signin and login pages
+import React from 'react'
+import { Field, reduxForm } from 'redux-form';
+import './login.css';
+
+let Login = props => {
+  const { handleSubmit } = props
+  return (
+  	<div className='row'>
+	    <form className="col-6 page-form" onSubmit={handleSubmit}>
+	    <h2 className='centered-text'>{props.name}</h2>
+	    <h3 className='centered-text'>Login</h3>
+	      <div className='page-child'>
+	        <label htmlFor="username">Username</label>
+	        <Field name="username" component="input" type="text" required />
+	      </div>
+	      <div className='page-child'>
+	        <label htmlFor="password">Password</label>
+	        <Field name="password" component="input" type="password"  required/>
+	      </div>
+	      <div className="centered-text">
+	      <button className='submit-button' type="submit">Submit</button>
+	      </div>
+	    </form>
+    </div>
+  )
+}
+
+Login = reduxForm({
+  form: 'Login'
+})(Login)
+
+export default Login

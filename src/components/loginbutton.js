@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {login} from '../actions';
 
 
-export default function LoginButton(props) {
+
+export function LoginButton(props) {
 	return(
-		<a href="">{props.name}</a>
+		<a href="" onClick={(e) => {e.preventDefault();
+			props.dispatch(login());} }>Login</a>
 	)
 }
 
-LoginButton.defaultProps = {
-	name: 'Login'
-};
+export default connect()(LoginButton);
