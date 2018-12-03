@@ -1,5 +1,6 @@
 .not-found-message {
 	margin-top: 150px;
+	margin-bottom: 100px;
 }
 
 @media only screen and (min-width: 700px) {

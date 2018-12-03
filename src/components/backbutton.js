@@ -7,7 +7,7 @@ import './backbutton.css';
 //places where it cna do actual work
 export function BackButton(props) {
 	return(
-		<button href="" onClick={(e) => {e.preventDefault();
+		<button className='back-button' href="" onClick={(e) => {e.preventDefault();
 			props.dispatch(returnToHome());} }>Back</button>
 	)
 }

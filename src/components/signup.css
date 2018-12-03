@@ -32,5 +32,13 @@
 
 .submit-button {
 	width: 210px;
-	margin-bottom: 100px;
+	margin-bottom: 75px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.button-wrapper {
+	display: flex;
+	flex-direction: column;
 }

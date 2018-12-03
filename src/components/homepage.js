@@ -13,6 +13,12 @@ import {searchPages} from '../actions';
 import './homepage.css';
 import '../grid.css';
 
+//When you come back, dont worry abbout the lack of connectin to your heroku app,, focus on finding good places to put the ack 
+//button s it that it works with the rest of the application, then once you have established good places to put the back button,
+//you make sure that the page used to create new pages is actually working properly. Not just in design, but to the point 
+//that the login and signup pages are working. Ok lets get it. Meh i can type a little more just to seem impressive, does this work
+//not really but illl keep going
+
 export class Homepage extends React.Component {
 	
 	onSubmit(textInput) {
@@ -32,6 +38,12 @@ export class Homepage extends React.Component {
 			if(this.props.loggingIn === true) {
 				return (
 					<Login name={this.props.appName} /> 
+				)
+			}
+
+			if(this.props.editingOn === true ) {
+				return(
+					<AddNewPage />
 				)
 			}
 
@@ -74,6 +86,7 @@ const mapStateToProps = state => ({
 	searchBarDesc: state.nba.searchBarDesc,
 	searchBarLabel: state.nba.searchBarLabel,
 	searchBarPlaceholder: state.nba.searchBarPlaceholder,
+	editingOn: state.nba.editingOn,
 	signUp: state.nba.signUp,
 	loggingIn: state.nba.loggingIn,
 	loggedIn: state.nba.loggedIn,

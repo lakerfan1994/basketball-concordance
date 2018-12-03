@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
+import BackButton from './backbutton';
 import './signup.css';
 
 
@@ -20,8 +21,9 @@ let Signup = props => {
 	        <label htmlFor="password">Password</label>
 	        <Field name="password" component="input" type="text"  required/>
 	      </div>
-	      <div className="centered-text">
-	      <button className='submit-button' type="submit">Submit</button>
+	      <div className="centered-text ">
+	      	<button className='submit-button' type="submit">Submit</button>
+	        <BackButton />
 	      </div>
 	    </form>
     </div>
