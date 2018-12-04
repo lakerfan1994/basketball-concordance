@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import SignupButton from './signupbutton';
 import LoginButton from './loginbutton';
 import EditPage from './editpage';
-import {editPage} from '../actions';
 import './articlestub.css';
 
 

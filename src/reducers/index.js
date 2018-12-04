@@ -1,9 +1,9 @@
-
-
-
 const initialState = {
+	editingOn: false,
 	searchIsOn: false,
-	loggedIn: false, 
+	signUp: false,
+	loggingIn: false,
+	loggedIn: true, 
 	searchTerm: '',
 	pages: [
 		{
@@ -33,6 +33,34 @@ export default function nbaReducer(state=initialState, action){
 			searchTerm: action.searchTerm,
 			searchIsOn: true,
 			currentPage: newCurrentPage
+		})
+	}
+
+	if(action.type === 'SIGN_UP') {
+		return Object.assign({}, state, {
+			signUp: true
+		})
+	}
+
+	if(action.type === 'LOGIN') {
+		return Object.assign({}, state, {
+			loggingIn: true
+		})
+	}
+
+	if(action.type === 'EDIT_PAGE') {
+		console.log(state.editingOn)
+		return Object.assign({}, state, {
+			editingOn: true
+		})
+	}
+
+	if(action.type === 'RETURN_TO_HOME') {
+		return Object.assign({}, state, {
+			loggingIn: false,
+			signUp: false, 
+			searchIsOn: false,
+			editingOn: false
 		})
 	}
 

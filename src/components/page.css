@@ -25,3 +25,12 @@ li {
 	border-bottom: 1px solid black;
 }
 
+.centered-text {
+	text-align: center;
+}
+
+.page-footer {
+	margin-top: 75px;
+	margin-bottom: 50px;
+}
+

@@ -42,8 +42,14 @@ export class Homepage extends React.Component {
 			}
 
 			if(this.props.editingOn === true ) {
-				return(
+				if(this.props.currentPage === undefined) {
+					return(
 					<AddNewPage />
+					)
+				}
+				return(
+					<AddNewPage title={this.props.currentPage.title} summary={this.props.currentPage.summary} sections={
+						this.props.currentPage.sections} />
 				)
 			}
 
@@ -66,8 +72,11 @@ export class Homepage extends React.Component {
 		}
 
 		return(
+			<div>
 			<Page title={this.props.currentPage.title} summary={this.props.currentPage.summary}
-			 sections={this.props.currentPage.sections} />
+			 sections={this.props.currentPage.sections} loggedIn={true} />
+			 <BackButton />
+			 </div>
 		)
 	}
 }
