@@ -42,9 +42,9 @@ export default function Page(props) {
 				</ul>
 			</div>
 			<div class= "summary">
-				<span>
-					{props.summary}
-				</span>
+				<a href='http://www.espn.com/nba/standings'>
+					Ekene this is what you are talking about
+				</a>
 			</div>
 		</div>
 		{sectionsWrapper}
