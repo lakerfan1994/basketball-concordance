@@ -25,6 +25,7 @@
 	flex: 2;
 	display: flex;
 	flex-direction: column;
+	border-radius: 20px;
 }
 
 .page-large-child {
