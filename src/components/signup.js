@@ -36,7 +36,7 @@ onClick(event) {
 	if(readyToBeSent) {
 
 		//questinon. D you really need box shadow in the program, if it s actually needed make
-			fetch(`${API_URL}/users`, {
+			fetch(`${API_URL}users`, {
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({username: _username, password: _password })
