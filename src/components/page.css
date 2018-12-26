@@ -11,6 +11,7 @@ li {
 	margin-top: 75px;
 	padding-bottom: 5px;
 	clear: both;
+	white-space: pre-wrap;
 }
 
 .content-bar {
@@ -18,6 +19,7 @@ li {
 	background: rgb(245,245,245);
 	float: right;
 	padding: 0 10px 0 10px;
+	margin-bottom: 20px;
 
 }
 
@@ -32,5 +34,9 @@ li {
 .page-footer {
 	margin-top: 75px;
 	margin-bottom: 50px;
+}
+
+.page-found {
+	white-space: pre-wrap;
 }
 

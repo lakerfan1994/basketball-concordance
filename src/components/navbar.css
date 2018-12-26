@@ -11,3 +11,12 @@
 .centered-text {
 	text-align: center;
 }
+
+@media only screen and (max-width: 700px) {
+	.not-on-small-screens {
+		display: none;
+	}
+
+}
+
+

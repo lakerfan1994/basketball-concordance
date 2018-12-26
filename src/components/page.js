@@ -10,7 +10,7 @@ import '../grid.css';
 export default function Page(props) {
 	const contentBar = props.sections.map((section, index) => (
 		<li key={index}>
-			{index + 1}: <a href="">{section.title}</a>
+			{index + 1}: <span>{section.title}</span>
 		</li> 
 		)
 	)
@@ -42,9 +42,7 @@ export default function Page(props) {
 				</ul>
 			</div>
 			<div class= "summary">
-				<a href='http://www.espn.com/nba/standings'>
-					Ekene this is what you are talking about
-				</a>
+					{props.summary}
 			</div>
 		</div>
 		{sectionsWrapper}

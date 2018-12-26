@@ -8,7 +8,8 @@ import AddNewPage from './addNewPage';
 import Login from './login';
 import Signup from './signup';
 import BackButton from './backbutton';
-import {searchPages} from '../actions';
+import {searchPages, storeSearchTerm, loadPage} from '../actions';
+import {API_URL} from '../config';
 
 import './homepage.css';
 import '../grid.css';
@@ -22,47 +23,71 @@ import '../grid.css';
 export class Homepage extends React.Component {
 	
 	onSubmit(textInput) {
-		textInput = textInput.trim().toLowerCase();
-		this.props.dispatch(searchPages(textInput));
+		this.props.dispatch(storeSearchTerm(textInput));
+		console.log(`${API_URL}/pages/${textInput}`);
+		fetch(`${API_URL}/pages/${textInput}`)
+		.then(res => {
+			return res.json();	
+		})
+		.then(page => {
+			this.props.dispatch(searchPages(page));
+		})
+		.catch(err => {
+			console.log(err);
+		})
+		
 		//dispatch this action check to see if the search is there, if it is you redirect them to a new page based on the search term
 		//if search is on you render a different page with the search element insteead
 	}
 // create a back button commponent that takes you back to the home page by taking off all the cursury tags
 		render() {
+
+			if(localStorage.getItem('authToken')) {
+				this.props.dispatch(loadPage(localStorage.getItem('username')));
+			}
+
 			if(this.props.signUp === true){
 				return (
+					<div className='main-page-shaded'>
 					<Signup name={this.props.appName} />
+					</div>
 				)
 			}
 
 			if(this.props.loggingIn === true) {
 				return (
-					<Login name={this.props.appName} /> 
+					<div className='main-page-shaded'>
+						<Login name={this.props.appName} />
+					</div> 
 				)
 			}
 
 			if(this.props.editingOn === true ) {
 				if(this.props.currentPage === undefined) {
 					return(
-					<AddNewPage />
+						<div className='black-background'>
+							<AddNewPage runSearchAgain={search => this.onSubmit(search)} />
+						</div>
 					)
 				}
 				return(
-					<AddNewPage title={this.props.currentPage.title} summary={this.props.currentPage.summary} sections={
+					<div className='black-background'>
+						<AddNewPage runSearchAgain={search => this.onSubmit(search)} title={this.props.currentPage.title} summary={this.props.currentPage.summary} sections={
 						this.props.currentPage.sections} />
+					</div>
 				)
 			}
 
 
 			if(this.props.searchIsOn === false) {
 			return (
-				<div>
-					<Navbar name={this.props.appName} />
+				<div className='main-page'>
+					<Navbar name={this.props.appName} loggedIn={this.props.loggedIn} username={this.props.username}/>
 				<Searchbar onClick={search => this.onSubmit(search)} name={this.props.searchBarName} description={this.props.searchBarDesc}
 					label={this.props.searchBarLabel} placeholder={this.props.searchBarPlaceholder} />		
 			</div>)
 		}
-		if(this.props.currentPage === undefined) {
+		if(this.props.currentPage.summary === '') {
 			return(
 				<div>
 				<ArticleStub loggedIn={this.props.loggedIn} searchTerm={this.props.searchTerm} />
@@ -71,10 +96,12 @@ export class Homepage extends React.Component {
 			)
 		}
 
+		//when you come back, take off thee prop of basketeball concordance on the top oleft, then 
+
 		return(
 			<div>
-			<Page title={this.props.currentPage.title} summary={this.props.currentPage.summary}
-			 sections={this.props.currentPage.sections} loggedIn={true} />
+			<Page title={this.props.currentPage.title} summary={this.props.currentPage.summary} loggedIn={this.props.loggedIn}
+			 sections={this.props.currentPage.sections} />
 			 <BackButton />
 			 </div>
 		)
@@ -100,9 +127,9 @@ const mapStateToProps = state => ({
 	loggingIn: state.nba.loggingIn,
 	loggedIn: state.nba.loggedIn,
 	searchTerm: state.nba.searchTerm,
-	pages: state.nba.pages,
 	searchIsOn: state.nba.searchIsOn,
-	currentPage: state.nba.currentPage
+	currentPage: state.nba.currentPage,
+	username: state.nba.username
 })
 
 export default connect(mapStateToProps)(Homepage);

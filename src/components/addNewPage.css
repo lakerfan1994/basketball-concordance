@@ -12,6 +12,8 @@
 	min-height: 800px;
 	margin-top: 100px;
 	background-color: lightblue;
+	border-radius: 15px;
+
 
 }
 
@@ -37,4 +39,8 @@
 
 .submit-button {
 	margin-top: 50px;
+}
+
+.page-child textarea {
+	height: 150px;
 }

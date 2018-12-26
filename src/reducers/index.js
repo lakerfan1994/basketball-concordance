@@ -1,19 +1,12 @@
-const initialState = {
+	const initialState = {
 	editingOn: false,
 	searchIsOn: false,
 	signUp: false,
 	loggingIn: false,
-	loggedIn: true, 
+	loggedIn: false, 
 	searchTerm: '',
-	pages: [
-		{
-			title: 'Lakers',
-			searchQueries: ['lakers', 'los angeles lakers'],
-			summary: 'yada ya ddasaslsin',
-			sections: [{title: 'lakers did this', text: 'yahushausksfhusduahsksah'}, {title: 'lakers did this too', text: 'yassjdjkadskhashsahkashka'}]
-		}
-	],
-	currentPage: {}
+	currentPage: {},
+	username: ''
 }
 
 
@@ -21,18 +14,16 @@ const initialState = {
 
 export default function nbaReducer(state=initialState, action){
 	if(action.type === 'SEARCH_PAGES'){
-		let newCurrentPage =state.pages.find(page => {
-			for(let i = 0; i < page.searchQueries.length; i++){
-				if(page.searchQueries[i] === action.searchTerm) {
-					return true;
-				}
-			}
-			return false;
-		});
+		
 		return Object.assign({}, state, {
-			searchTerm: action.searchTerm,
 			searchIsOn: true,
-			currentPage: newCurrentPage
+			currentPage: action.page
+		})
+	}
+
+	if(action.type === 'STORE_SEARCH_TERM') {
+		return Object.assign({}, state, {
+			searchTerm: action.searchTerm
 		})
 	}
 
@@ -48,10 +39,39 @@ export default function nbaReducer(state=initialState, action){
 		})
 	}
 
+	if(action.type === 'LOGOUT') {
+		return Object.assign({}, state, {
+			loggedIn: false
+		})
+	}
+
+	if(action.type === 'LOAD_PAGE') {
+		return Object.assign({}, state, {
+			loggedIn: true, 
+			username: action.username
+		})
+	}
+
+	if(action.type === 'COMPLETE_LOGIN') {
+		return Object.assign({}, state, {
+			loggedIn: true,
+			username: action.username,
+			loggingIn: false,
+			signUp: false, 
+			searchIsOn: false,
+			editingOn: false
+		})
+	}
+
 	if(action.type === 'EDIT_PAGE') {
-		console.log(state.editingOn)
 		return Object.assign({}, state, {
 			editingOn: true
+		})
+	}
+
+	if(action.type === 'STOP_EDIT') {
+		return Object.assign({}, state, {
+			editingOn: false
 		})
 	}
 
