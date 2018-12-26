@@ -1,1 +1,1 @@
-exports.API_URL = process.env.API_URL || "http://localhost:8080"
+exports.API_URL = process.env.API_URL || "https://warm-hamlet-65994.herokuapp.com/"
